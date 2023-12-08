@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { getApiResource } from '../../utils/network'
-import { API_PEOPLE } from '../../constants/api';
-import { getPeopleId, getPeopleImage } from '../../services/getPeopleData';
 
-import PeopleList from '../../components/PeoplePage/PeopleList/PeopleList';
+import { withErrorApi } from '@hoc-helpers/withErrorApi';
+import { getApiResource } from '@utils/network'
+import { API_PEOPLE } from '@constants/api';
+import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
+import PeopleList from '@components/PeoplePage/PeopleList/PeopleList';
 
 import styles from './PeoplePage.module.css';
 
 
-const PeoplePage = () => {
+const PeoplePage = ({ setErrorApi }) => {
 
     const [people, setPeople] = useState(null);
-    // Проверку на ошибку при запросе
-    const [errorApi, setErrorApi] = useState(false);
 
     // Получение и преобразование данных
     const getResource = async (url) => {
@@ -49,18 +48,11 @@ const PeoplePage = () => {
 
     return (
         <>
-            {errorApi
-                ? <h2>Error </h2>
-                : (
-                    <>
-                        <h1>Navigation</h1>
-                        {/* Делаем проверку на наличие данных, т.к из-за default state === null будем получать ошибку*/}
-                        {people && <PeopleList people={people} />}
-                    </>
-                )
-            }
+            <h1>Navigation</h1>
+            {/* Делаем проверку на наличие данных, т.к из-за default state === null будем получать ошибку*/}
+            {people && <PeopleList people={people} />}
         </>
     )
 }
-
-export default PeoplePage;
+// Оборачиваем компонент в HOC
+export default withErrorApi(PeoplePage);

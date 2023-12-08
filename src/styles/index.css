@@ -3,14 +3,17 @@
   --color-white: #fff;
   --color-blac: #000;
   --color-dark-gray: #10100e;
+  --color-yellow: #ffff00;
 
   /* spacing */
   --spacing-medium: 20px;
+
+  --font-size-header: 26px;
+  
   /* fonts */
-
   --font-family-main: sans-serif;
-  /* borders */
 
+  /* borders */
   --border-radius-small: 3px;
 }
 

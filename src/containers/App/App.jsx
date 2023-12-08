@@ -1,8 +1,7 @@
 // classnames для конкатенирования классов
 /* import cn from 'classnames' */
 import styles from './App.module.css';
-import { getApiResource } from '../../utils/network';
-import PeoplePage from '../PeoplePage';
+import PeoplePage from '@containers/PeoplePage';
 
 const App = () => {
 

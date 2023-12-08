@@ -2,7 +2,7 @@
 import {
     HTTP, HTTPS, SWAPI_PEOPLE, SWAPI_ROOT,
     URL_IMG_PERSON, GUIDE_IMG_EXTENSION
-} from "../constants/api";
+} from "@constants/api";
 
 // Проверка протокола: HTTP или HTTPS
 const checkProtocol = url => {
