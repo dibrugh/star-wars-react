@@ -5,6 +5,7 @@ import { getApiResource } from '@utils/network'
 import { API_PEOPLE } from '@constants/api';
 import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
 import PeopleList from '@components/PeoplePage/PeopleList/PeopleList';
+import PropTypes from 'prop-types';
 
 import styles from './PeoplePage.module.css';
 
@@ -54,5 +55,11 @@ const PeoplePage = ({ setErrorApi }) => {
         </>
     )
 }
+
+
+PeoplePage.propTypes = {
+    setErrorApi: PropTypes.func,
+}
+
 // Оборачиваем компонент в HOC
 export default withErrorApi(PeoplePage);
