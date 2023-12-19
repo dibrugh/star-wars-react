@@ -1,14 +1,18 @@
+// libraries
 import React, { useEffect, useState } from 'react'
-
-import { withErrorApi } from '@hoc-helpers/withErrorApi';
-import { getApiResource } from '@utils/network'
-import { API_PEOPLE } from '@constants/api';
-import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
-import PeopleList from '@components/PeoplePage/PeopleList/PeopleList';
 import PropTypes from 'prop-types';
-
+// HOC
+import { withErrorApi } from '@hoc-helpers/withErrorApi';
+// components
+import PeopleList from '@components/PeoplePage/PeopleList/PeopleList';
+// utils
+import { getApiResource } from '@utils/network'
+// constants
+import { API_PEOPLE } from '@constants/api';
+// services
+import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
+// styles
 import styles from './PeoplePage.module.css';
-
 
 const PeoplePage = ({ setErrorApi }) => {
 
@@ -49,7 +53,7 @@ const PeoplePage = ({ setErrorApi }) => {
 
     return (
         <>
-            <h1>Navigation</h1>
+            <h1 className='header__text'>Navigation</h1>
             {/* Делаем проверку на наличие данных, т.к из-за default state === null будем получать ошибку*/}
             {people && <PeopleList people={people} />}
         </>

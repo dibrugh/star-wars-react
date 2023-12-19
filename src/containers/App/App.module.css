@@ -1,7 +1,11 @@
-.header {
-    color: red;
+.wrapper {
+    max-width: var(--width-max);
+    margin: auto;
+    padding: var(--spacing-large) 0;
 }
 
-.text {
-    text-decoration: line-through;
+@media screen and (max-width: 1400px) {
+    .wrapper {
+        padding: var(--spacing-large);
+    }
 }
