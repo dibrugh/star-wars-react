@@ -19,6 +19,9 @@ import styles from "./PeoplePage.module.css";
 
 const PeoplePage = ({ setErrorApi }) => {
 	const [people, setPeople] = useState(null);
+
+	const [prevPage, setPrevPage] = useState(null);
+	const [nextPage, setNextPage] = useState(null);
 	// Получаем объект URLSearchParams
 	const query = useQueryParams();
 	// Получаем номер страницы
@@ -46,6 +49,9 @@ const PeoplePage = ({ setErrorApi }) => {
 			});
 
 			setPeople(peopleList);
+			// Добавляем данные по наличию других страниц
+			setPrevPage(res.previous);
+			setNextPage(res.next);
 			setErrorApi(false);
 		} else {
 			setErrorApi(true);
