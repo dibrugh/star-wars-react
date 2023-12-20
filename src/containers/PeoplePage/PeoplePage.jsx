@@ -8,25 +8,26 @@ import { useQueryParams } from "@hooks/useQueryParams";
 // components
 import PeopleList from "@components/PeoplePage/PeopleList/PeopleList";
 // utils
-import { getApiResource } from "@utils/network";
+import { getApiResource, changeHTTP } from "@utils/network";
 // constants
 import { API_PEOPLE } from "@constants/api";
 // services
-import { getPeopleId, getPeopleImage } from "@services/getPeopleData";
+import { getPeopleId, getPeopleImage, getPeoplePageId } from "@services/getPeopleData";
 
 // styles
 import styles from "./PeoplePage.module.css";
 
 const PeoplePage = ({ setErrorApi }) => {
 	const [people, setPeople] = useState(null);
-
+    // Получаем страницы
 	const [prevPage, setPrevPage] = useState(null);
 	const [nextPage, setNextPage] = useState(null);
+    // Номер текущей страницы
+    const [counterPage, setCounterPage] = useState(1);
 	// Получаем объект URLSearchParams
 	const query = useQueryParams();
 	// Получаем номер страницы
 	const queryPage = query.get("page");
-	console.log(queryPage);
 
 	// Получение и преобразование данных
 	const getResource = async (url) => {
@@ -49,9 +50,11 @@ const PeoplePage = ({ setErrorApi }) => {
 			});
 
 			setPeople(peopleList);
-			// Добавляем данные по наличию других страниц
-			setPrevPage(res.previous);
-			setNextPage(res.next);
+			// Добавляем данные по наличию других страниц меняя запрос на HTTPS
+			setPrevPage(changeHTTP(response.previous));
+			setNextPage(changeHTTP(response.next));
+            // Устанавливаем номер текущей страницы
+            setCounterPage(getPeoplePageId(url));
 			setErrorApi(false);
 		} else {
 			setErrorApi(true);
