@@ -8,7 +8,7 @@ const routesConfig = [
         element: HomePage,
     },
     {
-        path: '/people',
+        path: '/people/',
         element: PeoplePage,
     },
     {
