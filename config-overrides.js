@@ -5,6 +5,7 @@ module.exports = function override(config, env) {
 
     alias({
         '@components': 'src/components',
+        '@ui': 'src/components/Ui-Kit',
         '@containers': 'src/containers',
         '@constants': 'src/constants',
         '@hoc-helpers': 'src/hoc-helpers',
