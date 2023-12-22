@@ -1,23 +1,28 @@
 import HomePage from '@containers/HomePage';
 import PeoplePage from '@containers/PeoplePage';
 import NotFoundPage from '@containers/NotFoundPage';
+import PersonPage from '@containers/PersonPage';
 
 const routesConfig = [
     {
         path: '/',
-        element: HomePage,
+        element: <HomePage />,
     },
     {
         path: '/people/',
-        element: PeoplePage,
+        element: <PeoplePage />,
+    },
+    {
+        path: '/people/:id',
+        element: <PersonPage/>,
     },
     {
         path: '/not-found',
-        element: NotFoundPage,
+        element: <NotFoundPage />,
     },
     {
         path: '*',
-        element: NotFoundPage,
+        element: <NotFoundPage />,
     },
 ];
 
