@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header';
 
 import styles from './App.module.css';
 
-/// Типизировать, кэшировать загрузку изображений, Suspens() с прелоадером
+/// Типизировать, кэшировать загрузку изображений, прелоадеры (или разобраться с Suspense)
 
 const App = () => {
 

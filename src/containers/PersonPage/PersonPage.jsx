@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router";
 
@@ -7,13 +7,18 @@ import { withErrorApi } from "@hoc-helpers/withErrorApi";
 import PersonInfo from "@components/PersonPage/PersonInfo";
 import PersonPhoto from "@components/PersonPage/PersonPhoto";
 import PersonLinkBack from "@components/PersonPage/PersonLinkBack";
-import PersonFilms from "@components/PersonPage/PersonFilms";
 import { getApiResource } from "@utils/network";
 import { API_PERSON } from "@constants/api";
 
 import { getPeopleImage } from "@services/getPeopleData";
+import UiLoading from "@ui/UiLoading";
 
 import styles from "./PersonPage.module.css";
+
+/* Оптимизируем загрузку */
+const PersonFilms = React.lazy(() =>
+	import("@components/PersonPage/PersonFilms")
+);
 
 const PersonPage = ({ setErrorApi }) => {
 	const [personInfo, setPersonInfo] = useState(null);
@@ -57,7 +62,12 @@ const PersonPage = ({ setErrorApi }) => {
 				<div className={styles.container}>
 					<PersonPhoto personPhoto={personPhoto} personName={personName} />
 					{personInfo && <PersonInfo personInfo={personInfo} />}
-					{personFilms && <PersonFilms personFilms={personFilms} />}
+					{personFilms && (
+						// fallback - что будем рендерить до загрузки personFilms
+						<Suspense fallback={<UiLoading />}>
+							<PersonFilms personFilms={personFilms} />
+						</Suspense>
+					)}
 				</div>
 			</div>
 		</>
