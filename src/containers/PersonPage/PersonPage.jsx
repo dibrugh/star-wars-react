@@ -47,9 +47,13 @@ const PersonPage = ({ setErrorApi }) => {
 
 	return (
 		<>
-			<h1>{personName}</h1>
-			<PersonPhoto personPhoto={personPhoto} personName={personName} />
-			{personInfo && <PersonInfo personInfo={personInfo} />}
+			<div className={styles.wrapper}>
+				<span className={styles.person__name}>{personName}</span>
+				<div className={styles.container}>
+					<PersonPhoto personPhoto={personPhoto} personName={personName} />
+					{personInfo && <PersonInfo personInfo={personInfo} />}
+				</div>
+			</div>
 		</>
 	);
 };
