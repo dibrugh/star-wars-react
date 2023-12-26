@@ -38,3 +38,11 @@ export const changeHTTP = url => {
     const body = await getApiResource(SWAPI_ROOT + SWAPI_PEOPLE);
 })(); */
 
+// Проходим по массиву url-ов и резолвим все
+export const makeConcurrentRequest = async (url) => {
+    const res = await Promise.all(url.map(result => {
+        return fetch(result).then(res => res.json())
+    }));
+
+    return res;
+}
