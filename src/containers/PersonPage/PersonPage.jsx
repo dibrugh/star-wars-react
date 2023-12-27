@@ -25,11 +25,14 @@ const PersonPage = ({ setErrorApi }) => {
 	const [personName, setPersonName] = useState(null);
 	const [personPhoto, setPersonPhoto] = useState(null);
 	const [personFilms, setPersonFilms] = useState(null);
+	/* Для работы со стором */
+	const [personId, setPersonId] = useState(null);
 
 	const { id } = useParams();
 	useEffect(() => {
 		/* Т.е getApiResource асинхронная, для удобства можно использовать асинхронную IEF */
 		(async () => {
+			setPersonId(id);
 			const response = await getApiResource(`${API_PERSON}/${id}`);
 
 			if (response) {
@@ -60,7 +63,11 @@ const PersonPage = ({ setErrorApi }) => {
 			<div className={styles.wrapper}>
 				<span className={styles.person__name}>{personName}</span>
 				<div className={styles.container}>
-					<PersonPhoto personPhoto={personPhoto} personName={personName} />
+					<PersonPhoto
+						personPhoto={personPhoto}
+						personName={personName}
+						personId={personId}
+					/>
 					{personInfo && <PersonInfo personInfo={personInfo} />}
 					{personFilms && (
 						// fallback - что будем рендерить до загрузки personFilms

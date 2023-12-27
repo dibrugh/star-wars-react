@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { makeConcurrentRequest } from "@utils/network";
+import UiLoading from '@ui/UiLoading'
 
 import styles from "./PersonFilms.module.css";
 
@@ -16,6 +17,7 @@ const PersonFilms = ({ personFilms }) => {
 	return (
 		<div className={styles.wrapper}>
 			<ul className={styles.list__container}>
+				{(!filmsName.length) && <UiLoading />}
 				{filmsName
 					/* После promise all нужно отсортировать по порядку*/
 					.sort((a, b) => a.episode_id - b.episode_id)
