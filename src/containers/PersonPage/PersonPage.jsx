@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router";
-
+import { useSelector } from "react-redux";
 import { withErrorApi } from "@hoc-helpers/withErrorApi";
 
 import PersonInfo from "@components/PersonPage/PersonInfo";
@@ -27,12 +27,17 @@ const PersonPage = ({ setErrorApi }) => {
 	const [personFilms, setPersonFilms] = useState(null);
 	/* Для работы со стором */
 	const [personId, setPersonId] = useState(null);
+	const [personFavorite, setPersonFavorite] = useState(false);
+	// Получаемым данные из store через useSelector
+	const storeData = useSelector((state) => state.rootReducer);
 
 	const { id } = useParams();
 	useEffect(() => {
 		/* Т.е getApiResource асинхронная, для удобства можно использовать асинхронную IEF */
 		(async () => {
 			setPersonId(id);
+			//можно setPersonFavorite(!!storeDate[id])
+			storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false);
 			const response = await getApiResource(`${API_PERSON}/${id}`);
 
 			if (response) {
@@ -47,7 +52,6 @@ const PersonPage = ({ setErrorApi }) => {
 				]);
 				setPersonName(response.name);
 				setPersonPhoto(getPeopleImage(id));
-
 				response.films.length && setPersonFilms(response.films);
 
 				setErrorApi(false);
@@ -67,6 +71,8 @@ const PersonPage = ({ setErrorApi }) => {
 						personPhoto={personPhoto}
 						personName={personName}
 						personId={personId}
+						personFavorite={personFavorite}
+						setPersonFavorite={setPersonFavorite}
 					/>
 					{personInfo && <PersonInfo personInfo={personInfo} />}
 					{personFilms && (
