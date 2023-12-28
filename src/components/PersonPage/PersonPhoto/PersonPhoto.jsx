@@ -55,17 +55,17 @@ const PersonPhoto = ({
 			<div className={styles.container}>
 				<img className={styles.photo} src={personPhoto} alt={personName} />
 				{/* По ARIA интерактивный элемент должен быть button */}
-				<img
-					className={styles.favorite}
+				<button
+					className={styles.favorite_btn}
 					onClick={dispatchFavoritePeople}
-					src={personFavorite ? iconFavoriteFill : iconFavorite}
-					alt="Add to favorite"
-				/>
+				>
+					<img
+						className={styles.favorite}
+						src={personFavorite ? iconFavoriteFill : iconFavorite}
+						alt="Add to favorite"
+					/>
+				</button>
 			</div>
-
-			{/* <button onClick={dispatchFavoritePeople}>
-				{personFavorite ? "Удалить из избранного" : "Добавить в избранное"}
-			</button> */}
 		</>
 	);
 };
