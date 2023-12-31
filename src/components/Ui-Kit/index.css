@@ -1,11 +1,24 @@
 :root {
-    --color-white: #fff;
-    --color-black: #000;
-    --color-gray: #9c9c9c;
+	--color-white: #fff;
+	--color-black: #000;
+	--color-blue: #6a83fb;
+	--color-gray: #9c9c9c;
+	--color-lightgray: #dfe2df;
 
-    --font-size-small: 14px;
-    --font-family-main: sans-serif;
-    --font-bold: 600;
+	--font-size-small: 14px;
+	--font-size-medium: 16px;
+	--font-family-main: sans-serif;
+	--font-bold: 600;
 
-    --transition: 0.4s;
+	--transition: 0.4s;
+}
+
+*,
+*:after,
+*::before {
+	box-sizing: border-box;
+}
+
+img {
+	display: block;
 }
