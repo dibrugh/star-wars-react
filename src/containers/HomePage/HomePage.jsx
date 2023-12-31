@@ -6,8 +6,8 @@ import styles from "./HomePage.module.css";
 const HomePage = () => {
 	return (
 		<>
-			<ChooseSide />
 			<div className="header__text">HomePage</div>
+			<ChooseSide />
 		</>
 	);
 };
