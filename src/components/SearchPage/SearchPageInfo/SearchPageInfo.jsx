@@ -8,14 +8,14 @@ const SearchPageInfo = ({ people }) => (
 	<>
 		{people.length ? (
 			<ul className={styles.list__container}>
-				{people.map(({ id, name, img }) => {
+				{people.map(({ id, name, img }) => (
 					<li className={styles.list__item} key={name + id}>
 						<Link to={`/people/${id}`}>
 							<img className={styles.person__photo} src={img} alt={name} />
 							<p className={styles.person__name}>{name}</p>
 						</Link>
-					</li>;
-				})}
+					</li>
+				))}
 			</ul>
 		) : (
 			<h2 className={styles.person__comment}>No results</h2>

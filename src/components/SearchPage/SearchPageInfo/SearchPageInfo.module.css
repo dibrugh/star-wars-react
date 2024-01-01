@@ -5,14 +5,11 @@
 	list-style-type: none;
 }
 
-.list__item {
-}
-
 .list__item a {
 	/* чтобы не отрывалось имя */
 	display: inline-flex;
 	color: var(--color-black);
-	text-decoration: center;
+	text-decoration: none;
 	text-align: center;
 	cursor: pointer;
 }
