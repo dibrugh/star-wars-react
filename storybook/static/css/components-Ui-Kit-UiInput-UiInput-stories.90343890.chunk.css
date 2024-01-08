@@ -1,0 +1,73 @@
+:root {
+	--color-white: #fff;
+	--color-black: #000;
+	--color-blue: #6a83fb;
+	--color-gray: #9c9c9c;
+	--color-lightgray: #dfe2df;
+
+	--font-size-small: 14px;
+	--font-size-medium: 16px;
+	--font-family-main: sans-serif;
+	--font-bold: 600;
+
+	--transition: 0.4s;
+}
+
+*,
+*:after,
+*::before {
+	box-sizing: border-box;
+}
+
+img {
+	display: block;
+}
+
+.UiInput_wrapper__input__OGMRJ {
+	/* Переиспользуемые переменные в этом компоненте */
+	--border-radius: 3px;
+	--border: 3px;
+	--clear-width: 35px;
+
+	position: relative;
+	display: inline-flex;
+}
+
+.UiInput_input__SpZLG {
+	min-width: 300px;
+	padding: 10px 15px;
+	padding-right: calc(var(--clear-width) + 15px);
+	border: var(--border) solid var(--color-lightgray);
+	border-radius: var(--border-radius);
+	font-size: var(--font-size-medium);
+	font-family: var(--font-family-main);
+	outline: none;
+}
+
+.UiInput_input__SpZLG:focus {
+	border: var(--border) solid var(--color-blue);
+}
+
+.UiInput_clear__av1Hl {
+	position: absolute;
+
+	top: var(--border);
+	right: var(--border);
+	width: var(--clear-width);
+	height: calc(100% - var(--border) * 2);
+
+	padding: 10px;
+	/* Важно, чтобы полность помещался */
+	object-fit: contain;
+	object-position: center center;
+	transition: 0.5s;
+	opacity: 0.4;
+	cursor: pointer;
+}
+
+.UiInput_clear__disabled__1EYD8 {
+	opacity: 0.2;
+}
+
+
+/*# sourceMappingURL=components-Ui-Kit-UiInput-UiInput-stories.90343890.chunk.css.map*/
