@@ -6,13 +6,14 @@ import App from "@containers/App";
 import { Provider } from "react-redux";
 import store from "@store/store";
 import ThemeProvider from "@context/ThemeProvider";
+import { REPO_NAME } from "@constants/repo";
 
 import "@styles/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<BrowserRouter>
-		<React.StrictMode>
+	<React.StrictMode>
+		<BrowserRouter basename={`/${REPO_NAME}/`}>
 			{/* Redux Provider */}
 			<Provider store={store}>
 				{/* Для изменения темы используем React Context */}
@@ -20,6 +21,6 @@ root.render(
 					<App />
 				</ThemeProvider>
 			</Provider>
-		</React.StrictMode>
-	</BrowserRouter>
+		</BrowserRouter>
+	</React.StrictMode>
 );

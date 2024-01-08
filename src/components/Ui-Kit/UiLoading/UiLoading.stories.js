@@ -12,24 +12,24 @@ const Template = (args) => <UiLoading {...args} />;
 const props = {
 	theme: "black",
 	isShadow: false,
-	classes,
+	classes: '',
 };
 
 export const White = Template.bind({});
-Light.args = {
+White.args = {
 	...props,
 	theme: "white",
-    isShadow: true,
+	isShadow: true,
 };
 
 export const Black = Template.bind({});
-Dark.args = {
+Black.args = {
 	...props,
 	theme: "black",
 };
 
 export const Blue = Template.bind({});
-Disabled.args = {
+Blue.args = {
 	...props,
 	theme: "blue",
 };

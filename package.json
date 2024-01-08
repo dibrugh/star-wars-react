@@ -1,61 +1,65 @@
 {
-  "name": "star-wars-react",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@reduxjs/toolkit": "^2.0.1",
-    "classnames": "^2.3.2",
-    "lodash": "^4.17.21",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^9.0.4",
-    "react-router": "^6.20.1",
-    "react-router-dom": "^6.20.1",
-    "react-scripts": "5.0.1",
-    "redux": "^5.0.1",
-    "redux-thunk": "^3.1.0"
-  },
-  "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "eject": "react-scripts eject",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:storybook/recommended"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@storybook/addon-essentials": "^7.6.6",
-    "@storybook/addon-interactions": "^7.6.6",
-    "@storybook/addon-links": "^7.6.6",
-    "@storybook/addon-onboarding": "^1.0.10",
-    "@storybook/blocks": "^7.6.6",
-    "@storybook/preset-create-react-app": "^7.6.6",
-    "@storybook/react": "^7.6.6",
-    "@storybook/react-webpack5": "^7.6.6",
-    "@storybook/test": "^7.6.6",
-    "eslint-plugin-storybook": "^0.6.15",
-    "react-app-rewire-alias": "^1.1.7",
-    "react-app-rewired": "^2.2.1",
-    "storybook": "^7.6.6",
-    "webpack": "^5.89.0"
-  }
+	"name": "star-wars-react",
+	"version": "0.1.0",
+	"homepage": "https://dibrugh.github.io/star-wars-react",
+	"private": true,
+	"dependencies": {
+		"@reduxjs/toolkit": "^2.0.1",
+		"classnames": "^2.3.2",
+		"lodash": "^4.17.21",
+		"prop-types": "^15.8.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-redux": "^9.0.4",
+		"react-router": "^6.20.1",
+		"react-router-dom": "^6.20.1",
+		"react-scripts": "5.0.1",
+		"redux": "^5.0.1",
+		"redux-thunk": "^3.1.0"
+	},
+	"scripts": {
+		"start": "react-app-rewired start",
+		"build": "react-app-rewired build",
+		"build-storybook": "storybook build -o ./build/storybook",
+		"deploy": "npm run build && npm run build-storybook && npm run build-gh-pages",
+		"eject": "react-scripts eject",
+		"storybook": "storybook dev -p 6006",
+		"build-gh-pages": "gh-pages -d build"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest",
+			"plugin:storybook/recommended"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@storybook/addon-essentials": "^7.6.6",
+		"@storybook/addon-interactions": "^7.6.6",
+		"@storybook/addon-links": "^7.6.6",
+		"@storybook/addon-onboarding": "^1.0.10",
+		"@storybook/blocks": "^7.6.6",
+		"@storybook/preset-create-react-app": "^7.6.6",
+		"@storybook/react": "^7.6.6",
+		"@storybook/react-webpack5": "^7.6.6",
+		"@storybook/test": "^7.6.6",
+		"eslint-plugin-storybook": "^0.6.15",
+		"gh-pages": "^6.1.1",
+		"react-app-rewire-alias": "^1.1.7",
+		"react-app-rewired": "^2.2.1",
+		"storybook": "^7.6.6",
+		"webpack": "^5.89.0"
+	}
 }
